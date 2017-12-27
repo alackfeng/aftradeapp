@@ -24,9 +24,9 @@
   ],
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react": "~16.2.0",
-    "react-dom": "^16.2.0",
-    "react-native": "0.50.4",
+    "react": "~16.0.0",
+    "react-dom": "^16.0.0",
+    "react-native": "0.51.0",
     "react-native-i18n": "^1.0.0",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "git+https://github.com/react-community/react-navigation.git#d5618ebd41ec1ac53cb40301d0f71610fbbb7172",

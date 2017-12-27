@@ -1,4 +1,4 @@
-package com.universalnativeboilerplate;
+package com.tarotapp;
 
 import android.app.Application;
 import android.util.Log;
@@ -26,8 +26,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativeI18n()
+              new ReactNativeI18n()
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index.android";
     }
   };
 
