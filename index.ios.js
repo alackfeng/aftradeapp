@@ -10,4 +10,4 @@ import {
 
 import ClientApp from './js/components/ClientApp';
 
-AppRegistry.registerComponent('UniversalNativeBoilerplate', () => ClientApp);
+AppRegistry.registerComponent('TarotApp', () => ClientApp);
