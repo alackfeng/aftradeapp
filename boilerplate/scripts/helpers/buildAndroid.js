@@ -20,6 +20,7 @@ function buildAndroid(resolve, reject) {
       'build',
       'outputs',
       'apk',
+      mode.toLowerCase(),
       `app-${mode === 'Production' ? `${mode.toLowerCase()}-unsigned` : mode.toLowerCase()}.apk`
     );
     const pathToDest = path.join(
