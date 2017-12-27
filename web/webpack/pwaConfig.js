@@ -5,7 +5,7 @@ const PUBLIC_PATH = config.PUBLIC_PATH;
 
 module.exports = {
   // (see https://github.com/haydenbleasel/favicons#usage)
-  appName: 'UniversalNativeBoilerplate', // Your application's name. `string`
+  appName: 'TarotApp', // Your application's name. `string`
   appDescription: null,           // Your application's description. `string`
   developerName: 'Charlie Hulcher', // Your (or your developer's) name. `string`
   developerURL: 'https://charlie.engineer', // Your (or your developer's) URL. `string`

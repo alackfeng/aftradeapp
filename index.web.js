@@ -10,8 +10,8 @@ import {
 
 import ClientApp from './js/components/ClientApp';
 
-AppRegistry.registerComponent('UniversalNativeBoilerplate', () => ClientApp);
+AppRegistry.registerComponent('TarotApp', () => ClientApp);
 
-AppRegistry.runApplication('UniversalNativeBoilerplate', {
+AppRegistry.runApplication('TarotApp', {
   rootTag: document.getElementById('container'),
 });

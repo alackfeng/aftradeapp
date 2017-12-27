@@ -70,7 +70,7 @@ function handleRender(req, res) {
     // Create a new Redux store instance
     const store = generateStore(initialState);
 
-    AppRegistry.registerComponent('UniversalNativeBoilerplate', () => {
+    AppRegistry.registerComponent('TarotApp', () => {
       return (
         <Provider store={store}>
           <App />
@@ -81,7 +81,7 @@ function handleRender(req, res) {
     const {
       // element,
       stylesheet,
-    } = AppRegistry.getApplication('UniversalNativeBoilerplate', {});
+    } = AppRegistry.getApplication('TarotApp', {});
 
     // BROKEN Render the component to a string
     // const html = renderToString(element);

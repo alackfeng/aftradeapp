@@ -13,7 +13,7 @@
  int main(int argc, char * argv[]) {
      @autoreleasepool {
          NSApplication * application = [NSApplication sharedApplication];
-         NSMenu *mainMenu = [[NSMenu alloc] initWithTitle:@"UniversalNativeBoilerplate"];
+         NSMenu *mainMenu = [[NSMenu alloc] initWithTitle:@"TarotApp"];
          [NSApp setMainMenu:mainMenu];
          AppDelegate * appDelegate = [[AppDelegate alloc] init];
          [application setDelegate:appDelegate];

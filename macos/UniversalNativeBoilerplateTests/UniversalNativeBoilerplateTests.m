@@ -14,12 +14,12 @@
  #import "RCTRootView.h"
 
 
- @interface UniversalNativeBoilerplateTests : XCTestCase
+ @interface TarotAppTests : XCTestCase
 
  @end
 
 
- @implementation UniversalNativeBoilerplateTests
+ @implementation TarotAppTests
 
  - (void)setUp {
    [super setUp];

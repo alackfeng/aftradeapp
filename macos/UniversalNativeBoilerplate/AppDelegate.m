@@ -27,7 +27,7 @@
         [[self window] setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameAqua]];
 
         [windowController setShouldCascadeWindows:NO];
-        [windowController setWindowFrameAutosaveName:@"UniversalNativeBoilerplate"];
+        [windowController setWindowFrameAutosaveName:@"TarotApp"];
 
         [windowController showWindow:self.window];
 
@@ -43,7 +43,7 @@
                                               launchOptions:nil];
 
     RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:_bridge
-                                                     moduleName:@"UniversalNativeBoilerplate"
+                                                     moduleName:@"TarotApp"
                                               initialProperties:nil];
 
 
@@ -78,7 +78,7 @@
     NSMenuItem *containerItem = [[NSMenuItem alloc] init];
     NSMenu *rootMenu = [[NSMenu alloc] initWithTitle:@"" ];
     [containerItem setSubmenu:rootMenu];
-    [rootMenu addItemWithTitle:@"Quit UniversalNativeBoilerplate" action:@selector(terminate:) keyEquivalent:@"q"];
+    [rootMenu addItemWithTitle:@"Quit TarotApp" action:@selector(terminate:) keyEquivalent:@"q"];
     [[NSApp mainMenu] addItem:containerItem];
 }
 

@@ -3,7 +3,7 @@ using ReactNative.Modules.Core;
 using ReactNative.Shell;
 using System.Collections.Generic;
 
-namespace UniversalNativeBoilerplate
+namespace TarotApp
 {
     class MainPage : ReactPage
     {
@@ -11,7 +11,7 @@ namespace UniversalNativeBoilerplate
         {
             get
             {
-                return "UniversalNativeBoilerplate";
+                return "TarotApp";
             }
         }
 

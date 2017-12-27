@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="b98f71bd-ca70-42e5-892d-0dfd9f1b0df7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>UniversalNativeBoilerplate</DisplayName>
+    <DisplayName>TarotApp</DisplayName>
     <PublisherDisplayName>React Native for UWP</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="UniversalNativeBoilerplate.App">
+      EntryPoint="TarotApp.App">
       <uap:VisualElements
-        DisplayName="UniversalNativeBoilerplate"
+        DisplayName="TarotApp"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="UniversalNativeBoilerplate"
+        Description="TarotApp"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

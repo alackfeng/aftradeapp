@@ -1,8 +1,8 @@
 <Application
-    x:Class="UniversalNativeBoilerplate.App"
+    x:Class="TarotApp.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UniversalNativeBoilerplate"
+    xmlns:local="using:TarotApp"
     RequestedTheme="Light">
 
 </Application>
