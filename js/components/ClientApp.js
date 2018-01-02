@@ -6,11 +6,12 @@ import {
   getStore,
 } from '../redux/store';
 import App from './App';
+import Playground from "./Playground";
 
 const ClientApp = () => {
   return (
     <Provider store={getStore()}>
-      <App />
+      <Playground />
     </Provider>
   );
 };
