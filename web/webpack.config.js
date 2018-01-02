@@ -13,7 +13,7 @@ module.exports = {
     quiet: false,
     contentBase: path.join(process.cwd(), 'web', 'src'),
     port: process.env.PORT || 3000,
-    host: 'localhost',
+    host: '0.0.0.0',
     publicPath: PUBLIC_PATH,
     historyApiFallback: {
       index: '/index.html',
@@ -74,6 +74,7 @@ module.exports = {
           path.resolve(process.cwd(), 'node_modules', 'react-navigation'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-tab-view'),
           path.resolve(process.cwd(), 'js'),
+          path.resolve(process.cwd(), 'app'),
           path.resolve(process.cwd(), 'index.web.js'),
         ],
         loader: 'babel-loader',

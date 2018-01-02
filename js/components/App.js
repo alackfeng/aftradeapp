@@ -18,6 +18,7 @@ const App = (props) => {
     dispatch,
     nav,
   } = props;
+  console.log("----- App.js:App ready - ", appReady, " , nav - ", JSON.stringify(nav.routes.length));
   return (
     <NavigationWrappedApp
       dispatch={dispatch}
