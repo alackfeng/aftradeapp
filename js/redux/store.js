@@ -14,9 +14,23 @@ import {
 import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from './middlewares/logger';
 
+// add logger promise array to middleware
+import { createLogger } from "redux-logger";
+import promise from "./promise";
+import array from "./array";
+import analytics from "./analytics";
+import { isDebuggingInChrome } from "../env";
+
 import storageEngine from './storageEngine';
 import reducer from './reducers';
 import ActionTypes from './action_types.json';
+
+//const isDebuggingInChrome = true;
+const logger = createLogger({
+  predicate: (getState, action) => isDebuggingInChrome,
+  collapsed: true,
+  duration: true,
+});
 
 const persistConfig = {
   keyPrefix: 'app:',
@@ -40,7 +54,7 @@ export function generateStore(initialState, hydrate = true) {
   // conditionally add args to store
   const args = [
     hydrate ? autoRehydrate() : null,
-    applyMiddleware(thunkMiddleware, loggerMiddleware),
+    applyMiddleware(thunkMiddleware, promise, array, analytics, /*loggerMiddleware, */logger),
   ].filter(arg => arg !== null);
 
   // create the store
@@ -73,6 +87,10 @@ function init() {
       appReady: true,
     });
   });
+
+  if(isDebuggingInChrome) {
+    window.store = store;
+  }
   return store;
 }
 

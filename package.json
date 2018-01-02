@@ -23,19 +23,20 @@
     "lint"
   ],
   "dependencies": {
+    "offline-plugin": "^4.6.1",
     "prop-types": "^15.6.0",
     "react": "~16.0.0",
     "react-dom": "^16.0.0",
     "react-native": "0.50.4",
     "react-native-i18n": "^1.0.0",
     "react-native-vector-icons": "^4.4.2",
+    "react-native-web": "^0.1.14",
     "react-navigation": "git+https://github.com/react-community/react-navigation.git#d5618ebd41ec1ac53cb40301d0f71610fbbb7172",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^4.3.0",
-    "redux-thunk": "^2.2.0",
-    "offline-plugin": "^4.6.1",
-    "react-native-web": "^0.1.14"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

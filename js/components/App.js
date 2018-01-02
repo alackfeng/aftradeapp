@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { View, Text } from "react-native";
+import LaunchScreen from "./Common/LaunchScreen";
+
 import {
   connect,
 } from 'react-redux';
@@ -19,6 +22,14 @@ const App = (props) => {
     nav,
   } = props;
   console.log("----- App.js:App ready - ", appReady, " , nav - ", JSON.stringify(nav.routes.length));
+
+  // launch screen
+  if(!props.appReady) {
+    console.log("----- App.js::App appReady - ", props.appReady);
+    return <LaunchScreen />
+  }
+
+  // enter app
   return (
     <NavigationWrappedApp
       dispatch={dispatch}
