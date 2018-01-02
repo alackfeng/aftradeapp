@@ -11,7 +11,7 @@ import Playground from "./Playground";
 const ClientApp = () => {
   return (
     <Provider store={getStore()}>
-      <Playground />
+      <App />
     </Provider>
   );
 };

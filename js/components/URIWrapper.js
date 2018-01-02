@@ -27,8 +27,11 @@ export default (NavigationAwareView) => {
       const {
         dispatch,
       } = this.props;
+
       if (typeof Linking.getInitialURL === 'function') {
         const initURL = await Linking.getInitialURL();
+        console.log("----- URIWrapper.js::NavigationContainer - init url - ", initURL.length);
+
         if (initURL && initURL.length) {
           const pathFromURL = initURL.slice(initURL.indexOf('://') + 3);
           const deepLinkAction = getAction(
