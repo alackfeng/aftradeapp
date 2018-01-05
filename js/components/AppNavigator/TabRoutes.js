@@ -1,13 +1,20 @@
 import {
   notFoundKey,
   AppRoutes,
+  StackRoutes,
 } from '../AppRoutes';
 
-const TabRoutes = {};
-for (const key in AppRoutes) {
-  if (key !== notFoundKey) {
-    TabRoutes[key] = AppRoutes[key];
-  }
-}
+const constructRoutes = (routes) => {
+	const Routes = {};
+	for (const key in routes) {
+	  if (key !== notFoundKey) {
+	    Routes[key] = routes[key];
+	  }
+	}
+	return Routes;
+};
 
-export default TabRoutes;
+// 增加不同导航处理，主导航，TAB导航，侧华导航
+export const TabRoutes = constructRoutes(AppRoutes);
+export const MainRoutes = constructRoutes(StackRoutes);
+export default MainRoutes;

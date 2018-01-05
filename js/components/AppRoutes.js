@@ -35,27 +35,36 @@ export const AppRoutes = {
     screen: Home,
     path: 'home',
     navigationOptions: {
-      title: 'Welcome',
-      tabBarLabel: 'Welcome',
+      title: 'welcome',
+      tabBarLabel: '首页',
       tabBarIcon: getIcon('home'),
     },
   },
-  IconsGrid: {
+  Relation: {
     screen: IconsGrid,
-    path: 'icons',
+    path: 'relation',
     navigationOptions: {
-      title: 'Icons',
-      tabBarLabel: 'Icons',
-      tabBarIcon: getIcon('view-module'),
+      title: 'relation',
+      tabBarLabel: '关系户',
+      tabBarIcon: getIcon('supervisor-account'),
     },
   },
-  Translation: {
+  News: {
     screen: Translation,
-    path: 'translation',
+    path: 'news',
     navigationOptions: {
-      title: 'Translation',
-      tabBarLabel: 'Translation',
-      tabBarIcon: getIcon('translate'),
+      title: 'news',
+      tabBarLabel: '资讯',
+      tabBarIcon: getIcon('explore'),
+    },
+  },
+  Wallet: {
+    screen: Translation,
+    path: 'wallet',
+    navigationOptions: {
+      title: 'wallet',
+      tabBarLabel: '我的钱包',
+      tabBarIcon: getIcon('fingerprint'),
     },
   },
   NotFound: {
@@ -65,4 +74,10 @@ export const AppRoutes = {
       title: 'Nothing Found',
     },
   },
+};
+
+export const StackRoutes = {
+  IconsGrid: {
+    screen: IconsGrid
+  }
 };

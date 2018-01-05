@@ -6,7 +6,7 @@ import {
   getStore,
 } from '../redux/store';
 import App from './App';
-import Playground from "./Playground";
+import Playground from "./Playground"; // 用于测试UI View, 直接修改Playground中的Module，并在Provider子组件加载
 
 const ClientApp = () => {
   return (

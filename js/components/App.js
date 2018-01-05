@@ -21,11 +21,12 @@ const App = (props) => {
     dispatch,
     nav,
   } = props;
-  console.log("----- App.js:App ready - ", appReady, " , nav - ", JSON.stringify(nav.routes.length));
+
+  console.log("=====[App.js]::App ready - ", appReady, " , nav - ", JSON.stringify(nav.routes.length));
 
   // launch screen
   if(!props.appReady) {
-    console.log("----- App.js::App appReady - ", props.appReady);
+    console.log("=====[App.js]::App appReady - ", props.appReady);
     return <LaunchScreen />
   }
 
