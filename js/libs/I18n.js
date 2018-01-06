@@ -1,6 +1,6 @@
-import I18n from 'react-native-i18n';
+import I18n, { getLanguages } from 'react-native-i18n';
 
-import translations from '../translations.json';
+import { zh, en } from "./locales";
 
 if (typeof navigator === 'object' && navigator) {
   const locale = navigator.userLanguage
@@ -12,5 +12,16 @@ if (typeof navigator === 'object' && navigator) {
   }
 }
 
+
+// add this
+getLanguages && getLanguages().then(languages => {
+	console.log("=====[I18n.js]::language - ", languages);
+});
+
 I18n.fallbacks = true;
-I18n.translations = translations;
+I18n.translations = {
+	en,
+	zh,
+};
+
+export default I18n;

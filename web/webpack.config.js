@@ -74,7 +74,6 @@ module.exports = {
           path.resolve(process.cwd(), 'node_modules', 'react-navigation'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-tab-view'),
           path.resolve(process.cwd(), 'js'),
-          path.resolve(process.cwd(), 'app'),
           path.resolve(process.cwd(), 'index.web.js'),
         ],
         loader: 'babel-loader',

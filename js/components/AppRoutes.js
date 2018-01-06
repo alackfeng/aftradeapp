@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { translation, locale } from "../libs";
+
 import Icon from './Icon';
 import Home from '../views/Home';
 import IconsGrid from '../views/IconsGrid';

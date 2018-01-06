@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 import ClientApp from './js/components/ClientApp';
-import Setup from "./app/Setup";
 
 AppRegistry.registerComponent('TarotApp', () => ClientApp); 
 
