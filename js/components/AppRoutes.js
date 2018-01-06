@@ -8,7 +8,7 @@ import Home from '../views/Home';
 import IconsGrid from '../views/IconsGrid';
 import NotFound from '../views/NotFound';
 import Translation from '../views/Translation';
-import AuthEnter from "../views/Auth";
+import { WelcomeScreen, RegisterScreen, LoginScreen, SplashScreen } from "../views/Enter";
 
 import Ionicons from "react-native-vector-icons/MaterialIcons";
 
@@ -85,17 +85,36 @@ export const AppRoutes = {
  * stack导航，用于主导航，包括欢迎，登录，主页面等 
 */
 export const StackRoutes = {
-  Auth: {
-    screen: AuthEnter,
+  Splash: {
+    screen: WelcomeScreen,
+    navigationOptions: {
+      header: null,
+    },
   },
-  IconsGrid: {
-    screen: IconsGrid
-  }
+  Register: {
+    screen: RegisterScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Welcome: {
+    screen: WelcomeScreen,
+    navigationOptions: {
+      header: null,
+    },
+    path: 'welcome',
+  },
 };
 
 export const DrawRoutes = {
   Auth: {
-    screen: AuthEnter,
+    screen: WelcomeScreen,
     navigationOptions: {
       drawerLabel: 'Auth',
       drawerIcon: ({ tintColor, focused }) => (

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, ActivityIndicator } from "react-native";
 
 
 const styles = StyleSheet.create({
@@ -17,23 +17,27 @@ const styles = StyleSheet.create({
   menu: {
   	margin: 10,
   	padding: 10
+  },
+  indicator: {
+    color: '#000'
   }
 });
 
-export default class Auth extends Component {
+class Welcome extends Component {
 	render() {
 
 		const { navigation } = this.props;
 		return (
 			<View style={styles.container} >
 				<Text style={styles.welcome} >Welcome to Aftrade Enter</Text>
+        <ActivityIndicator animating={true} color='red' />
 				<Button style={styles.menu} title="Enter to Main Page" 
 					onPress={() => navigation.navigate('Home')}
 				/>
-				<Button style={styles.menu} title="Enter to Draw Page" 
-					onPress={() => navigation.navigate('Draw')}
-				/>
+				
 			</View>
 		);
 	}
 }
+
+export const WelcomeScreen = Welcome;
