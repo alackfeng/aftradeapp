@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  menu: {
+  	margin: 10,
+  	padding: 10
+  }
 });
 
 export default class Auth extends Component {
@@ -23,10 +27,10 @@ export default class Auth extends Component {
 		return (
 			<View style={styles.container} >
 				<Text style={styles.welcome} >Welcome to Aftrade Enter</Text>
-				<Button title="Enter to Main Page" 
+				<Button style={styles.menu} title="Enter to Main Page" 
 					onPress={() => navigation.navigate('Home')}
 				/>
-				<Button title="Enter to Draw Page" 
+				<Button style={styles.menu} title="Enter to Draw Page" 
 					onPress={() => navigation.navigate('Draw')}
 				/>
 			</View>

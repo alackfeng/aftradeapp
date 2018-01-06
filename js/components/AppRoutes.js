@@ -8,6 +8,9 @@ import NotFound from '../views/NotFound';
 import Translation from '../views/Translation';
 import AuthEnter from "../views/Auth";
 
+import Ionicons from "react-native-vector-icons/MaterialIcons";
+
+
 export const notFoundKey = 'NotFound';
 
 /**
@@ -85,5 +88,34 @@ export const StackRoutes = {
   },
   IconsGrid: {
     screen: IconsGrid
+  }
+};
+
+export const DrawRoutes = {
+  Auth: {
+    screen: AuthEnter,
+    navigationOptions: {
+      drawerLabel: 'Auth',
+      drawerIcon: ({ tintColor, focused }) => (
+        <Ionicons
+          name={focused ? 'home': 'face'}
+          size={20}
+          style={{ color: tintColor }}
+        />
+      ),
+    },
+  },
+  IconsGrid: {
+    screen: IconsGrid,
+    navigationOptions: {
+      drawerLabel: 'IconsGrid',
+      drawerIcon: ({ tintColor, focused }) => (
+        <Ionicons
+          name={focused ? 'explore': 'fingerprint'}
+          size={20}
+          style={{ color: tintColor }}
+        />
+      ),
+    },
   }
 };

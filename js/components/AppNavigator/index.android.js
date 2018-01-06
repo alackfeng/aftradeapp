@@ -2,7 +2,7 @@ import {
   TabNavigator,
 } from 'react-navigation';
 
-import { MainRoutes, TabRoutes } from "./TabRoutes";
+import { MainRoutes, TabRoutes. MenuRoutes } from "./TabRoutes";
 import sharedTabBarOptions from './sharedTabBarOptions';
 
 const AppTabNavigator = TabNavigator(TabRoutes, {
@@ -11,11 +11,21 @@ const AppTabNavigator = TabNavigator(TabRoutes, {
   tabBarOptions: sharedTabBarOptions,
 });
 
+const AppDrawerDrawer = DrawerNavigator({
+  ...MenuRoutes, 
+  Main: {
+    screen: AppTabNavigator
+  },
+},);
+
 const AppNavigator = StackNavigator({
 	...MainRoutes, 
 	Main: {
 		screen: AppTabNavigator
 	},
+  Draw: {
+    screen: AppDrawerDrawer
+  }
 }, {
   headerMode: 'screen',
   URIPrefix: 'aftrade://',

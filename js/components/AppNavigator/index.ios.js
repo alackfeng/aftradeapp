@@ -4,7 +4,7 @@ import {
   DrawerNavigator,
 } from 'react-navigation';
 
-import { MainRoutes, TabRoutes } from "./TabRoutes";
+import { MainRoutes, TabRoutes, MenuRoutes } from "./TabRoutes";
 import sharedTabBarOptions from './sharedTabBarOptions';
 
 const AppTabNavigator = TabNavigator(TabRoutes, {
@@ -13,11 +13,12 @@ const AppTabNavigator = TabNavigator(TabRoutes, {
   tabBarOptions: sharedTabBarOptions,
 });
 
-const AppDrawerNavigator = DrawerNavigator(TabRoutes, {
-  initialRouteName: 'Home',
-  tabBarPosition: 'bottom',
-  tabBarOptions: sharedTabBarOptions,
-});
+const AppDrawerDrawer = DrawerNavigator({
+  ...MenuRoutes, 
+  Main: {
+    screen: AppTabNavigator
+  },
+},);
 
 const AppNavigator = StackNavigator({
 	...MainRoutes, 
@@ -25,7 +26,7 @@ const AppNavigator = StackNavigator({
 		screen: AppTabNavigator
 	},
   Draw: {
-    screen: AppDrawerNavigator
+    screen: AppDrawerDrawer
   }
 }, {
   headerMode: 'screen',
