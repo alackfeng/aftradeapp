@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { translation, locale } from "../libs";
+import { translate, locale } from "../libs";
 
 import Icon from './Icon';
 import Home from '../views/Home';
@@ -42,7 +42,7 @@ export const AppRoutes = {
     path: 'home',
     navigationOptions: {
       title: 'welcome',
-      tabBarLabel: '首页',
+      tabBarLabel: translate('menu.tab.home', locale),
       tabBarIcon: getIcon('home'),
     },
   },
@@ -51,7 +51,7 @@ export const AppRoutes = {
     path: 'relation',
     navigationOptions: {
       title: 'relation',
-      tabBarLabel: '关系户',
+      tabBarLabel: translate('menu.tab.relation', locale),
       tabBarIcon: getIcon('supervisor-account'),
     },
   },
@@ -60,7 +60,7 @@ export const AppRoutes = {
     path: 'news',
     navigationOptions: {
       title: 'news',
-      tabBarLabel: '资讯',
+      tabBarLabel: translate('menu.tab.news', locale),
       tabBarIcon: getIcon('explore'),
     },
   },
@@ -69,7 +69,7 @@ export const AppRoutes = {
     path: 'wallet',
     navigationOptions: {
       title: 'wallet',
-      tabBarLabel: '我的钱包',
+      tabBarLabel: translate('menu.tab.wallet', locale),
       tabBarIcon: getIcon('fingerprint'),
     },
   },
