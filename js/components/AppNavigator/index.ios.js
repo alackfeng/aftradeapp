@@ -1,6 +1,7 @@
 import {
   TabNavigator,
   StackNavigator, 
+  DrawerNavigator,
 } from 'react-navigation';
 
 import { MainRoutes, TabRoutes } from "./TabRoutes";
@@ -12,11 +13,20 @@ const AppTabNavigator = TabNavigator(TabRoutes, {
   tabBarOptions: sharedTabBarOptions,
 });
 
+const AppDrawerNavigator = DrawerNavigator(TabRoutes, {
+  initialRouteName: 'Home',
+  tabBarPosition: 'bottom',
+  tabBarOptions: sharedTabBarOptions,
+});
+
 const AppNavigator = StackNavigator({
 	...MainRoutes, 
 	Main: {
 		screen: AppTabNavigator
 	},
+  Draw: {
+    screen: AppDrawerNavigator
+  }
 }, {
   headerMode: 'screen',
   URIPrefix: 'aftrade://',

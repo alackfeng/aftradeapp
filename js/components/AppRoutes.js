@@ -6,6 +6,7 @@ import Home from '../views/Home';
 import IconsGrid from '../views/IconsGrid';
 import NotFound from '../views/NotFound';
 import Translation from '../views/Translation';
+import AuthEnter from "../views/Auth";
 
 export const notFoundKey = 'NotFound';
 
@@ -75,8 +76,13 @@ export const AppRoutes = {
     },
   },
 };
-
+/*
+ * stack导航，用于主导航，包括欢迎，登录，主页面等 
+*/
 export const StackRoutes = {
+  Auth: {
+    screen: AuthEnter,
+  },
   IconsGrid: {
     screen: IconsGrid
   }

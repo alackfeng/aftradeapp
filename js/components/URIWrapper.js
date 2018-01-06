@@ -30,10 +30,11 @@ export default (NavigationAwareView) => {
 
       if (typeof Linking.getInitialURL === 'function') {
         const initURL = await Linking.getInitialURL();
-        console.log("----- URIWrapper.js::NavigationContainer - init url - ", initURL.length);
-
+        
         if (initURL && initURL.length) {
+          
           const pathFromURL = initURL.slice(initURL.indexOf('://') + 3);
+          console.log("=====[URIWrapper.js]::NavigationContainer - call deepLinkAction - ", pathFromURL);
           const deepLinkAction = getAction(
             NavigationAwareView.router,
             // Android usually includes hostname so slice that out too
