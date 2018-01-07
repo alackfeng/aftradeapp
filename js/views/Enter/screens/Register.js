@@ -26,7 +26,7 @@ class Register extends Component {
 		const { navigation } = this.props;
 		return (
 			<View style={styles.container} >
-				<Text style={styles.welcome} >Welcome to Aftrade Enter</Text>
+				<Text style={styles.welcome} >Reigster Aftrade Account</Text>
 				<Button style={styles.menu} title="Enter to Main Page" 
 					onPress={() => navigation.navigate('Home')}
 				/>

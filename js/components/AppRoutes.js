@@ -86,7 +86,7 @@ export const AppRoutes = {
 */
 export const StackRoutes = {
   Splash: {
-    screen: WelcomeScreen,
+    screen: SplashScreen,
     navigationOptions: {
       header: null,
     },

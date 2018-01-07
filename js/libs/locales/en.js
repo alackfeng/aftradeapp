@@ -3,6 +3,9 @@ export const en = {
 	"auth": {
 		"greeting": "Hello",
 	},
+	comm: {
+		welcome: "Welcome to Aftrade Enter",
+	},
 	menu: {
 		tab: {
 			home: "Home",
@@ -10,6 +13,14 @@ export const en = {
 			news: "News",
 			wallet: "My Wallet",
 			"404": "Not Found"
+		}
+	},
+	enter: {
+		splash: {
+			welcomeTitle: "Welcome to Aftrade",
+			welcomeMessage: "Wish you Happily Forever",
+			signInButton: "SIGN IN",
+			registerInButton: "REGISTER",
 		}
 	}
 };

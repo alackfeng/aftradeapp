@@ -73,6 +73,7 @@ module.exports = {
           path.resolve(process.cwd(), 'node_modules', 'react-native-vector-icons'),
           path.resolve(process.cwd(), 'node_modules', 'react-navigation'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-tab-view'),
+          path.resolve(process.cwd(), 'node_modules', 'styled-components'),
           path.resolve(process.cwd(), 'js'),
           path.resolve(process.cwd(), 'index.web.js'),
         ],
