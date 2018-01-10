@@ -54,7 +54,7 @@ export function generateStore(initialState, hydrate = true) {
   // conditionally add args to store
   const args = [
     hydrate ? autoRehydrate() : null,
-    applyMiddleware(thunkMiddleware, promise, array, analytics, /*loggerMiddleware, */logger),
+    applyMiddleware(thunkMiddleware, promise, array, /*analytics, loggerMiddleware, */logger),
   ].filter(arg => arg !== null);
 
   // create the store

@@ -22,7 +22,7 @@ export const walletReducer = (state = initialState, action = {}) => {
 		case NODE.PENDING: {
 			return {
 				...state,
-				url: false,
+				url: "null",
 				status: 0
 			};
 		}

@@ -38,10 +38,15 @@ class Node extends Component {
 	constructor(props) {
 		super(props);
 
+
 		var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 		this.state = {
 			dataSource: ds.cloneWithRows(nodeList),
 		};
+	}
+
+	componentDidMount() {
+		this.props.nodeConnect(nodeList);
 	}
 
 	renderRow = (row) => {
@@ -64,7 +69,7 @@ class Node extends Component {
 
 		console.log("=====[Node.js]::render - node - ", url, status);
 		let showNodeList = nodeList.map((item, index) => {
-			console.log("=====[Node.js]::render - showNodeList - ", item, index);
+			// console.log("=====[Node.js]::render - showNodeList - ", item, index);
 			return <SLText key={index}>{index}: {item.url} - {item.location}</SLText>
 		});
 

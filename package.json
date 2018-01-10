@@ -23,6 +23,7 @@
     "lint"
   ],
   "dependencies": {
+    "assetfunjs": "git+https://github.com/alackfeng/assetfunjs.git",
     "offline-plugin": "^4.6.1",
     "prop-types": "^15.6.0",
     "react": "~16.0.0",

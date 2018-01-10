@@ -1,7 +1,10 @@
 
 import { WALLET, NODE, CONNECT } from "./types";
 
-export const nodeConnect = ({url}) => {
+import willTransitionTo from "../../libs/routerTransition";
+
+
+export const nodeConnect = (nodes) => {
 	return dispatch => {
 
 		dispatch({type: NODE.PENDING});
@@ -9,12 +12,19 @@ export const nodeConnect = ({url}) => {
 		// call someting, example api to node
 		console.log("+++++[wallet-action.js]::nodeConnect - call api...");
 
-		dispatch({
-			type: NODE.SUCCESS,
-			payload: {
-				url: url,
-				status: 1
-			}
+		// router transition
+		willTransitionTo(null, null, (res) => {
+			console.log("+++++[wallet-action.js]::nodeConnect - route result - ", res);
+
+			dispatch({
+				type: NODE.SUCCESS,
+				payload: {
+					url: res,
+					status: 1
+				}
+			});
+
 		});
+
 	};
 };
