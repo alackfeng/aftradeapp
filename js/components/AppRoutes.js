@@ -9,6 +9,7 @@ import IconsGrid from '../views/IconsGrid';
 import NotFound from '../views/NotFound';
 import Translation from '../views/Translation';
 import { WelcomeScreen, RegisterScreen, LoginScreen, SplashScreen } from "../views/Enter";
+import { NodeScreen, } from "../views/Wallet";
 
 import Ionicons from "react-native-vector-icons/MaterialIcons";
 
@@ -65,7 +66,7 @@ export const AppRoutes = {
     },
   },
   Wallet: {
-    screen: Translation,
+    screen: NodeScreen,
     path: 'wallet',
     navigationOptions: {
       title: 'wallet',

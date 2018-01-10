@@ -65,11 +65,11 @@ class Splash extends Component {
 
   componentDidMount() {
     const { isAuthenticated, navigation } = this.props;
-
+    console.log("=====[Splash.js]::componentDidMount - isAuthenticated - ", isAuthenticated);
     if(isAuthenticated) {
       navigation.navigate('Main');
     } else {
-      ;//navigation.navigate('Register');
+      navigation.navigate('Wallet');
     }
   }
 

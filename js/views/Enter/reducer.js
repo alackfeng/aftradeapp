@@ -5,7 +5,7 @@ import {
 import { LOGIN, REGSITER } from "./type";
 
 export const initialState = {
-	isAuthenticated: false,
+	isAuthenticated: true,
 	username: '',
 };
 
