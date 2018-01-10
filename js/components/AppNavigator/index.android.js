@@ -1,8 +1,10 @@
 import {
   TabNavigator,
+  StackNavigator, 
+  DrawerNavigator,
 } from 'react-navigation';
 
-import { MainRoutes, TabRoutes. MenuRoutes } from "./TabRoutes";
+import { MainRoutes, TabRoutes, MenuRoutes } from "./TabRoutes";
 import sharedTabBarOptions from './sharedTabBarOptions';
 
 const AppTabNavigator = TabNavigator(TabRoutes, {

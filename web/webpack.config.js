@@ -41,6 +41,7 @@ module.exports = {
       'react-redux',
       'redux',
       'react-native-i18n',
+      'styled-components',
     ],
   },
   output: {
