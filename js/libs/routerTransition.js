@@ -1,4 +1,8 @@
 import {Apis, Manager} from "assetfunjs-ws";
+var Buffer = require('buffer').Buffer;
+if(typeof global !== 'undefined') {
+  global.Buffer = require('buffer').Buffer; // TODO just use global Buffer
+}
 import {ChainStore} from "assetfunjs/es";
 
 // Stores
