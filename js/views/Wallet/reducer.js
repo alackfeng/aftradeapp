@@ -10,7 +10,7 @@ export const initialState = {
 
 export const walletReducer = (state = initialState, action = {}) => {
 	
-	//console.log("+++++[wallet-reducer.js]::walletReducer - ", action.type, action);
+	console.log("+++++[wallet-reducer.js]::walletReducer - ", action.type, action);
 
 	switch (action.type) {
 		case REHYDRATE: {

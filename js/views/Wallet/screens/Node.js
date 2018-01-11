@@ -4,11 +4,11 @@ import styled from "styled-components/native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ListView } from "react-native";
-import { nodeConnect } from "../actions";
+import { nodeConnect, updateRpcConnectionStatus } from "../actions";
+import { Apis } from "assetfunjs-ws";
 
 import { ViewContainer, Colors, Normalize, StyleSheet } from "../../../components";
 import { nodeList } from "../../../env";
-
 
 const SLViewText = styled.View`
   flex: 1;
@@ -38,15 +38,34 @@ class Node extends Component {
 	constructor(props) {
 		super(props);
 
-
 		var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 		this.state = {
 			dataSource: ds.cloneWithRows(nodeList),
+			statusList: []
 		};
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.status) {
+			
+			this.state.statusList.length && this.state.statusList.push(nextProps.status);
+
+			this.setState({
+				statusList: this.state.statusList.length ? this.state.statusList : [nextProps.status]
+			});
+		}
+	}
+
 	componentDidMount() {
+		
 		this.props.nodeConnect(nodeList);
+		Apis.setRpcConnectionStatusCallback(this.updateRpcConnectionStatus.bind(this));
+
+	}
+
+	updateRpcConnectionStatus(status) {
+		console.log("=====[Node.js]::updateRpcConnectionStatus - status - ", status);
+		this.props.updateRpcConnectionStatus(status);
 	}
 
 	renderRow = (row) => {
@@ -65,7 +84,7 @@ class Node extends Component {
 
 	render() {
 
-		const { url, status } = this.props;
+		const { url, status, } = this.props;
 
 		console.log("=====[Node.js]::render - node - ", url, status);
 		let showNodeList = nodeList.map((item, index) => {
@@ -73,24 +92,32 @@ class Node extends Component {
 			return <SLText key={index}>{index}: {item.url} - {item.location}</SLText>
 		});
 
+		let showStatusList = this.state.statusList.map((item, index) => {
+			return <SLText key={index}>Connect to Node-{url}, status-{item}</SLText>;
+		});
+
 		return (
 			<ViewContainer>
 				<SLViewText>
 					{ this.renderNodeList() }
-					<SLText>Connect to Node-{url}, status-{status}</SLText>
+					{ showStatusList }
 				</SLViewText>
 			</ViewContainer>
 		);
 	}
 }
 
+
 const mapStateToProps = (state) => ({
 	url: state.wallet.url,
 	status: state.wallet.status,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-	nodeConnect,
-}, dispatch);
+const mapDispatchToProps = dispatch => {
+	return {
+		nodeConnect: bindActionCreators(nodeConnect, dispatch),
+		updateRpcConnectionStatus: bindActionCreators(updateRpcConnectionStatus, dispatch),
+	};
+}
 
 export const NodeScreen = connect(mapStateToProps, mapDispatchToProps)(Node);

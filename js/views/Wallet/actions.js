@@ -4,6 +4,7 @@ import { WALLET, NODE, CONNECT } from "./types";
 import willTransitionTo from "../../libs/routerTransition";
 
 
+
 export const nodeConnect = (nodes) => {
 	return dispatch => {
 
@@ -28,3 +29,18 @@ export const nodeConnect = (nodes) => {
 
 	};
 };
+
+// listen rpc callback , so node status
+
+export const updateRpcConnectionStatus = (status) => {
+	console.log("+++++[wallet-action.js]::updateRpcConnectionStatus - node rpc status - ", status);
+
+	return {
+			type: NODE.SUCCESS,
+			payload: {
+				status: status
+			}
+	};
+};
+
+
