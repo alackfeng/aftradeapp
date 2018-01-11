@@ -2,7 +2,7 @@ import {Apis, Manager} from "assetfunjs-ws";
 import {ChainStore} from "assetfunjs/es";
 
 // Stores
-//import iDB from "idb-instance";
+import iDB from "./idb-instance";
 //import AccountRefsStore from "stores/AccountRefsStore";
 //import WalletManagerStore from "stores/WalletManagerStore";
 //import WalletDb from "stores/WalletDb";
@@ -102,7 +102,8 @@ const willTransitionTo = (nextState, replaceState, callback) => {
         connectionManager.connectWithFallback(connect).then(() => {
             var db;
             try {
-                //db = iDB.init_instance(window.openDatabase ? (shimIndexedDB || indexedDB) : indexedDB).init_promise;
+                console.log("=====[routerTransition.js]::willTransitionTo - db -  ", window.openDatabase, global.shimIndexedDB, indexedDB);
+                db = iDB.init_instance(window.openDatabase ? (global.shimIndexedDB || indexedDB) : indexedDB).init_promise;
             } catch(err) {
                 console.log("db init error:", err);
             }
@@ -110,8 +111,15 @@ const willTransitionTo = (nextState, replaceState, callback) => {
             console.log("=====[routerTransition.js]::willTransitionTo - connectWithFallback -  ", 
                 connectionManager.url, connectionManager.urls.indexOf(connectionManager.url));
 
-            return Promise.all([]).then(() => {
+            return Promise.all([db]).then(() => {
+                iDB.add_to_store("linked_accounts", {
+                    name: "nathan", 
+                    chainId: Apis.instance().chain_id
+                });
+
                 callback(connectionManager.url);
+
+
             });
             /*
             return Promise.all([db, SettingsStore.init()]).then(() => {
