@@ -1,8 +1,8 @@
 
-import { WALLET, NODE, CONNECT } from "./types";
+import { WALLET, NODE, CONNECT, ACCOUNTSEARCH } from "./types";
 
 import willTransitionTo from "../../libs/routerTransition";
-
+import ApplicationApi from "../../api/ApplicationApi";
 
 
 export const nodeConnect = (nodes) => {
@@ -40,6 +40,34 @@ export const updateRpcConnectionStatus = (status) => {
 			payload: {
 				status: status
 			}
+	};
+};
+
+// account search to node
+let accountSearchs = {};
+
+export const accountSearch = (start_symbol, limit = 50) => {
+	let uid = `${start_symbol}_${limit}`;
+	return dispatch => {
+		if(!accountSearchs[uid]) {
+			accountSearchs[uid] = true;
+			
+			dispatch({type: ACCOUNTSEARCH.PENDING});
+
+			return ApplicationApi.lookupAccounts(start_symbol, limit)
+				.then(result => {
+					accountSearchs[uid] = false;
+
+					// to reducer
+					dispatch({
+						type: ACCOUNTSEARCH.SUCCESS,
+						payload: {
+							searchTerm: start_symbol,
+							accounts: result
+						}
+					});
+				});
+		}
 	};
 };
 

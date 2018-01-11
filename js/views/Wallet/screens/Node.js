@@ -10,6 +10,8 @@ import { Apis } from "assetfunjs-ws";
 import { ViewContainer, Colors, Normalize, StyleSheet } from "../../../components";
 import { nodeList } from "../../../env";
 
+import { AccountSearchScreen } from "./AccountSearch";
+
 const SLViewText = styled.View`
   flex: 1;
   flex-direction: column;
@@ -102,6 +104,7 @@ class Node extends Component {
 					{ this.renderNodeList() }
 					{ showStatusList }
 				</SLViewText>
+				<AccountSearchScreen />
 			</ViewContainer>
 		);
 	}

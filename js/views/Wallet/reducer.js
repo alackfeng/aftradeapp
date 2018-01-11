@@ -1,11 +1,15 @@
 import { REHYDRATE } from "redux-persist/constants";
 
-import { WALLET, NODE, CONNECT } from "./types";
+import { WALLET, NODE, CONNECT, ACCOUNTSEARCH } from "./types";
 
 
 export const initialState = {
 	url: false,
-	status: 0
+	status: 0,
+	accountsearch: {
+		searchTerm: null,
+		accounts: []
+	}
 };
 
 export const walletReducer = (state = initialState, action = {}) => {
@@ -38,6 +42,18 @@ export const walletReducer = (state = initialState, action = {}) => {
 				url: false,
 				status: -1
 			};
+		}
+		case ACCOUNTSEARCH.PENDING: {
+			return {
+				...state,
+				accountsearch: {}
+			}
+		}
+		case ACCOUNTSEARCH.SUCCESS: {
+			return {
+				...state,
+				accountsearch: action.payload
+			}
 		}
 		default:
 			return state;
