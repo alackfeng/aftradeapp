@@ -11,6 +11,8 @@ import { ViewContainer, Colors, Normalize, StyleSheet } from "../../../component
 import { nodeList } from "../../../env";
 
 import { AccountSearchScreen } from "./AccountSearch";
+import { SettingsScreen } from "./Settings";
+import { WalletScreen } from "./Wallet";
 
 const SLViewText = styled.View`
   flex: 1;
@@ -75,6 +77,7 @@ class Node extends Component {
 	}
 
 	renderNodeList() {
+		return;
 		return (
 			<SLListView 
 				dataSource={this.state.dataSource}
@@ -104,7 +107,7 @@ class Node extends Component {
 					{ this.renderNodeList() }
 					{ showStatusList }
 				</SLViewText>
-				<AccountSearchScreen />
+				<WalletScreen />
 			</ViewContainer>
 		);
 	}
