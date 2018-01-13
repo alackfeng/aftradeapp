@@ -2,6 +2,7 @@ import idb_helper from "./idb-helper";
 
 const DB_VERSION_MAIN = 1;
 const DB_PREFIX = "assetfun_db";
+const __DEVICE__ = true;
 
 /** Usage: openIndexDB.then( db => ... */
 export default class iDBRoot {

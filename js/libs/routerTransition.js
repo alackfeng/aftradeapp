@@ -2,6 +2,7 @@ import {Apis, Manager} from "assetfunjs-ws";
 import {ChainStore} from "assetfunjs/es";
 
 // Stores
+import { AsyncStorage } from "react-native";
 import iDB from "./idb-instance";
 //import AccountRefsStore from "stores/AccountRefsStore";
 //import WalletManagerStore from "stores/WalletManagerStore";
@@ -102,8 +103,8 @@ const willTransitionTo = (nextState, replaceState, callback) => {
         connectionManager.connectWithFallback(connect).then(() => {
             var db;
             try {
-                console.log("=====[routerTransition.js]::willTransitionTo - db -  ", window.openDatabase, global.shimIndexedDB, indexedDB);
-                db = iDB.init_instance(window.openDatabase ? (global.shimIndexedDB || indexedDB) : indexedDB).init_promise;
+                console.log("=====[routerTransition.js]::willTransitionTo - db -  ", global.AsyncStorage);
+                //db = iDB.init_instance(window.openDatabase ? (global.AsyncStorage || localStorage || global.shimIndexedDB || indexedDB) : indexedDB).init_promise;
             } catch(err) {
                 console.log("db init error:", err);
             }
@@ -112,10 +113,10 @@ const willTransitionTo = (nextState, replaceState, callback) => {
                 connectionManager.url, connectionManager.urls.indexOf(connectionManager.url));
 
             return Promise.all([db]).then(() => {
-                iDB.add_to_store("linked_accounts", {
+                /* iDB.add_to_store("linked_accounts", {
                     name: "nathan", 
                     chainId: Apis.instance().chain_id
-                });
+                }); */
 
                 callback(connectionManager.url);
 

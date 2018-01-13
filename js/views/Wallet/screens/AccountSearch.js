@@ -29,10 +29,10 @@ class AccountSearch extends Component {
 		console.log("+++++[AccountSearch.js]::onSearchAccount - > ", this.state.searchContent);
 		this.props.accountSearch(this.state.searchContent, 50);
 
-		iDB.load_data("linked_accounts").then(data => {
+		/* iDB.load_data("linked_accounts").then(data => {
         console.log("+++++[AccountSearch.js]::AccountSearch - db - linked_accounts - ", data); 
         this.setState({linked_accounts: data[0]});
-    });
+    }); */
 	}
 
 	render() {

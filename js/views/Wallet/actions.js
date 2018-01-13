@@ -13,10 +13,7 @@ export const nodeConnect = (nodes) => {
 		// call someting, example api to node
 		console.log("+++++[wallet-action.js]::nodeConnect - call api...");
 
-		// router transition
 		willTransitionTo(null, null, (res) => {
-			console.log("+++++[wallet-action.js]::nodeConnect - route result - ", res);
-
 			dispatch({
 				type: NODE.SUCCESS,
 				payload: {
