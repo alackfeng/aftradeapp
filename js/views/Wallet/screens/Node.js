@@ -13,6 +13,7 @@ import { nodeList } from "../../../env";
 import { AccountSearchScreen } from "./AccountSearch";
 import { SettingsScreen } from "./Settings";
 import { WalletScreen } from "./Wallet";
+import { RegisterScreen } from "../../Users";
 
 const SLViewText = styled.View`
   flex: 1;
@@ -103,11 +104,12 @@ class Node extends Component {
 
 		return (
 			<ViewContainer>
+				<RegisterScreen />
 				<SLViewText>
 					{ this.renderNodeList() }
 					{ showStatusList }
 				</SLViewText>
-				<WalletScreen />
+				
 			</ViewContainer>
 		);
 	}
