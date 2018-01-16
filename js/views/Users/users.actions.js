@@ -12,13 +12,15 @@ export const init = () => {
 export const createAccount = 
 	(account_name, password, registrar, referrer, referrer_percent, refcode) => {
 
-	return dispatch => {
+	return (dispatch, getState) => {
+
+		console.log("=====[users.actions.js]::createAccount - param: ", dispatch, getState().users.inited);
 
 		dispatch({type: USERS_REGISTER.PENDING});
 
 
 		// call api register
-		return UsersBox.createAccountWithPassword(account_name, password, registrar, referrer, referrer_percent, refcode)
+		return UsersBox.createAccountWithPassword(dispatch, getState(), account_name, password, registrar, referrer, referrer_percent, refcode)
 			.then((res) => {
 				
 				console.log("=====[users.actions.js]::createAccount - ", res);

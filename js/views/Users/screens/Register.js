@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Text, View, StatusBar, TextInput, Button, TouchableHighlight } from "react-native";
 import { init, createAccount } from "../users.actions";
+import { ChainStore, FetchChain } from "assetfunjs/es";
 
 import { ViewContainer, Colors, Normalize, StyleSheet } from "../../../components";
 
@@ -90,7 +91,7 @@ class Register extends Component {
     this.state = {
       username: 'fengtest',
       password: 'fengtest',
-      registrar: null,
+      registrar: 'fengtest1',
     };
   }
 
@@ -114,13 +115,18 @@ class Register extends Component {
     e.preventDefault();
 
     const refcode = this.state.refcode;
-    const referrer = null;
+    const referrer = this.state.registrar;
 
     try {
 
       this.props.createAccount(username, password, this.state.registrar, referrer, 0, refcode).then((res) => {
 
         console.log("=====[Register.js]::userRegister - createAccount return : ok ", res);
+        FetchChain("getAccount", res).then((ret) => {
+          console.log("=====[Register.js]::userRegister - createAccount : getAccount is : ", ret);
+        }).catch(err => {
+          console.error("=====[Register.js]::userRegister - createAccount : getAccount is : err ", err);
+        })
       }).catch( err => {
 
         console.log("=====[Register.js]::userRegister - createAccount return : error - ", err);

@@ -59,6 +59,8 @@ class Api {
                     "votes": [ ]
                 }
             });
+
+            resolve(tr);
             /*return WalletDb.process_transaction(
                 tr,
                 null, //signer_private_keys,
