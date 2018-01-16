@@ -150,6 +150,7 @@ class UsersBox {
     let {privKey : owner_private} = this.generateKeyFromPassword(account_name, "owner", password);
     let {privKey: active_private} = this.generateKeyFromPassword(account_name, "active", password);
 
+
     console.log("=====[users.box.js]::createAccountWithPassword - param: ", dispatch, state.users.inited);
     console.log("=====[users.box.js]::createAccountWithPassword - create account:", account_name);
     console.log("=====[users.box.js]::createAccountWithPassword - new active pubkey", active_private.toPublicKey().toPublicKeyString(), active_private.toWif());
@@ -175,7 +176,7 @@ class UsersBox {
                     true
                 ).then((res) => {
                     console.log("process_transaction then", res);
-                    resolve(res);
+                    resolve({privateKey: {privKey: active_private.toWif(), pubKey: active_private.toPublicKey().toPublicKeyString()}, currentAccount: account_name});
                 }).catch(err => {
                     console.log("process_transaction catch", err);
                     reject(err);

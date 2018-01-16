@@ -5,3 +5,4 @@ import { createActionSet } from "../../components/Common";
 export const USERS									= createActionSet('USERS');
 export const USERS_LOGIN 						= createActionSet('USERS_LOGIN');
 export const USERS_REGISTER 				= createActionSet('USERS_REGISTER');
+export const USER_UNLOCK						= createActionSet('USER_UNLOCK');

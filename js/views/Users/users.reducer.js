@@ -1,12 +1,15 @@
 import { REHYDRATE } from "redux-persist/constants";
-import { USERS, USERS_LOGIN, USERS_REGISTER } from "./users.types";
+import { USERS, USERS_LOGIN, USERS_REGISTER, USER_UNLOCK } from "./users.types";
 
 export const initialUsersState = {
 	inited: null, 
 	pending: {
 		inited: false,
 		users: false,
+		register: false,
+		unlock: false,
 	},
+	isLocked: true,
 	currentAccount: [],
 };
 
@@ -18,7 +21,7 @@ export const usersReducer = (state = initialUsersState, action = {}) => {
 		case REHYDRATE: {	// REHYDRATE
 			return {
 				...state,
-				...action.payload.wallet
+				...action.payload.users
 			};
 		}
 		case USERS.PENDING: {	// USERS
@@ -39,6 +42,32 @@ export const usersReducer = (state = initialUsersState, action = {}) => {
 				...state,
 				inited: -1,
 			};
+		}
+		case USERS_REGISTER.PENDING: {
+			return {
+				...state,
+				pending: {...state.pending, register: 1}
+			};
+		}
+		case USERS_REGISTER.SUCCESS: {
+			return {
+				...state,
+				pending: {...state.pending, register: false},
+				...action.payload,
+			}
+		}
+		case USER_UNLOCK.PENDING: {
+			return {
+				...state,
+				pending: {...state.pending, unlock: 1}
+			};
+		}
+		case USER_UNLOCK.SUCCESS: {
+			return {
+				...state,
+				pending: {...state.pending, unlock: false},
+				...action.payload,
+			}
 		}
 		default:
 			return state;

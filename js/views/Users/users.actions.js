@@ -1,5 +1,5 @@
 
-import { USERS, USERS_LOGIN, USERS_REGISTER } from "./users.types";
+import { USERS, USERS_LOGIN, USERS_REGISTER, USER_UNLOCK } from "./users.types";
 
 import UsersBox  from "./users.box";
 
@@ -18,6 +18,7 @@ export const createAccount =
 
 		dispatch({type: USERS_REGISTER.PENDING});
 
+		dispatch(unLock());
 
 		// call api register
 		return UsersBox.createAccountWithPassword(dispatch, getState(), account_name, password, registrar, referrer, referrer_percent, refcode)
@@ -27,14 +28,22 @@ export const createAccount =
 				// store sucess
 				dispatch({
 					type: USERS_REGISTER.SUCCESS,
-					payload: {
-						account_name: account_name
-					}
+					payload: res,
 				});
 
 				// 
 				return account_name;
 			});
 
+	};
+};
+
+export const unLock = () => {
+	
+
+	return (dispatch, getState) => {
+
+		console.log("=====[users.actions.js]::unLock - param: ", getState().users.inited);
+		dispatch({type: USER_UNLOCK.PENDING});
 	};
 };

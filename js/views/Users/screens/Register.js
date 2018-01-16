@@ -8,6 +8,7 @@ import { init, createAccount } from "../users.actions";
 import { ChainStore, FetchChain } from "assetfunjs/es";
 
 import { ViewContainer, Colors, Normalize, StyleSheet } from "../../../components";
+import { LockScreen } from "./Lock";
 
 const SLView = styled.View`
   flex: 1;
@@ -140,13 +141,13 @@ class Register extends Component {
 
 	render() {
 
-		const { isAuthenticated, navigation } = this.props;
+		const { isAuthenticated, navigation, currentAccount } = this.props;
     console.log("=====[Register.js]::render - ", isAuthenticated);
 
 		return (
 			<ViewContainer>
 				<SLViewText>
-          <SLTextTitle>Reigster Aftrade Account</SLTextTitle>
+          <SLTextTitle>Reigster Aftrade Account : {currentAccount}</SLTextTitle>
         </SLViewText>
         <SLViewUserInput>
           <SLTextTitleName>用户名：</SLTextTitleName>
@@ -180,6 +181,7 @@ class Register extends Component {
             <SLTextSubmit>LOG</SLTextSubmit>
           </SLButtonSubmit>
         </SLViewSubmit>
+         <LockScreen />
 			</ViewContainer>
 		);
 	}
